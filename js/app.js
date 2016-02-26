@@ -1,5 +1,3 @@
-//router angular single page 
-
 angular.module('application', ['ui.router'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/home');
@@ -20,9 +18,24 @@ angular.module('application', ['ui.router'])
                 url: '/slide',
                 templateUrl: 'templates/slide.html'
             })
-        .state('contact',{
-            url:'/contact',
-            templateUrl: 'templates/contact.html'
-        });
+            .state('contact', {
+                url: '/contact',
+                templateUrl: 'templates/contact.html'
+            })
+            //Prodect shoe 
+            //รองเท้าผ้าใบ
+            .state('sneakers', {
+                url: '/sneakers',
+                templateUrl: 'shoes/sneakers.html'
+            })
+            //รองเท้าหนัง
+            .state('leather', {
+                url: '/leather',
+                templateUrl: 'shoes/leather.html'
+            })
+            //รองเท้ากีฬา
+            .state('sports', {
+                url: '/sports',
+                templateUrl: 'shoes/sports.html'
+            });
     });
-
