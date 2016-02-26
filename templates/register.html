@@ -1,0 +1,110 @@
+<style>
+    .red{
+        color: crimson;
+    }
+</style>
+   <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form class="form-horizontal" name="formRegister" role="form" novalidate>
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>สมัครสมาชิก </legend>
+
+                <!-- ชื่อเข้าใช้ระบบ-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">ชื่อเข้าสู่ระบบ<span class="red">*</span></label>
+                    <div class="col-sm-10">
+                        <input type="text" name="username" placeholder="ชื่อเข้าสู่ระบบ  0-9 A-Z a-z ใส่ทั้งตัวเลขและตัวอักษร" class="form-control" ng-model="user.username" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
+                        <div class="error" ng-show="formRegister.username.$dirty && formRegister.username.$error.required">
+                            <p>กรุณาระบุชื่อเข้าสู่ระบบของคุณ</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- รหัส -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput"> รหัสผ่าน<span class="red">*</span></label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password" placeholder="รหัส 0-9 A-Z a-z ใส่ทั้งตัวเลขและตัวอักษร" class="form-control" ng-model="user.password" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
+                        <div class="error" ng-show="formRegister.password.$dirty && formRegister.password.$error.required">
+                            <p>กรุณาใส่รหัสผ่านของคุณ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ยืนยันรหัส -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">ยืนยันรหัส<span class="red">*</span></label>
+                    <div class="col-sm-10">
+                        <input type="password" name="passwordConfirmation" placeholder="ยืนยันรหัส" class="form-control" ng-model="user.passwordConfirmation" password-confirmation="user.password">
+                        <div class="error" ng-show="formRegister.passwordConfirmation.$dirty && formRegister.passwordConfirmation.$error.passwordConfirmation">
+                            <p>รหัสผ่านของคุณไม่ตรงกัน</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ชื่อ นามสกุล -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">ชื่อ<span class="red">*</span></label>
+                    <div class="col-sm-4">
+                        <input type="text" name="fname" maxlength="20" placeholder="กรุณาใส่ชื่อของคุณ" class="form-control" ng-model="user.fname" required>
+                        <div class="error" ng-show="formRegister.fname.$dirty && formRegister.fname.$error.required">
+                            <p>กรุณาใส่ชื่อของคุณ</p>
+                        </div>
+                    </div>
+
+                    <label class="col-sm-2 control-label" for="textinput">นามสกุล<span class="red">*</span></label>
+                    <div class="col-sm-4">
+                        <input type="text" name="lnmae" placeholder="ใส่นามสกุลของคุณ" class="form-control" ng-model="user.lnmae" required>
+                        <div class="error" ng-show="formRegister.lnmae.$dirty && formRegister.lnmae.$error.required">
+                            <p>กรุณาใส่นามสกุลของคุณ</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- เบอร์โทร อีเมล์  -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">โทร<span class="red">*</span></label>
+                    <div class="col-sm-4">
+                        <input type="text" name="tel" maxlength="10" placeholder="กรุณาใส่เบอร์โทรของคุณ" class="form-control" ng-model="user.tel"   ng-pattern="/^[0-9]+$/" required>
+                        <div class="error" ng-show="formRegister.tel.$dirty && formRegister.tel.$error.required">
+                            <p>กรุณาใส่เบอร์โทรของคุณ</p>
+                        </div>
+                    </div>
+
+                    <label class="col-sm-2 control-label" for="textinput">อีเมล์<span class="red">*</span></label>
+                    <div class="col-sm-4">
+                        <input type="email" name="email" placeholder="ใส่ email ของคุณ" class="form-control" ng-model="user.email" required>
+                        <div class="error" ng-show="formRegister.email.$dirty && formRegister.email.$error.required">
+                            <p>กรุณาระบุอีเมล์ของคุณ</p>
+                        </div>
+                        <div class="error" ng-show="formRegister.email.$dirty && formRegister.email.$error.email">
+                            <p>อีเมล์ที่คุณระบบไม่ถูกต้อง กรุณาระบุใหม่อีกครั้ง</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ที่อยู่ -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">ที่อยู่</label>
+                    <div class="col-sm-10">
+                        <input type="text" placeholder="ใส่ที่อยู่ของคุณ" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="pull-right">
+                            <button type="reset" class="btn btn-danger">ยกเลิก</button>
+                            <button type="submit" class="btn btn-success" ng-disabled="formRegister.$invalid">ตกลง</button>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
